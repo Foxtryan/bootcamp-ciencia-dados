@@ -1,102 +1,115 @@
-LIMITE_SAQUE = 3
-LIMITE_VALOR = 500.00
-OPCOES = {
-    "1": lambda opc: deposito(),
-    "2": lambda opc: saque(),
-    "3": lambda opc: extrato(),
-    "0": lambda opc: print("Encerrando..."),
-}
-
-saldo = 0
-saques_diario = 0
-movimentacoes = list()
-
-
-def menu():
-    
-    entrada = ""
-    while entrada != '0':
-        
-        print("\nEscolha uma opção:")
-        print("[1] - Depósito")
-        print("[2] - Saque")
-        print("[3] - Consultar Extrato")
-        print("[0] - Sair")
-
-        entrada = input("Escolha: ")
-        if entrada in OPCOES.keys():
-            OPCOES[entrada]("opc")
-
-
-def deposito():
-
-    global saldo
-
-    valor = input("Valor do depósito: ")
-    valor = validar_valor(valor)
-
-    if valor > 0:
-        movimentacoes.append(valor)
-        saldo += valor
-        print(f"Depósito efetuado. Seu novo saldo é de {saldo}")
-
-def saque():
-
-    global saques_diario, saldo
-
-    if saques_diario >= LIMITE_SAQUE:
-        print("Limite de saques diário excedido.")
-        return
-    
-    valor = input("Valor do saque: ")
-    valor = validar_valor(valor)
-
-    if valor > 500:
-        print(f"Valor acima do limite permitido.\nSeu Limite é de {LIMITE_VALOR:.2f} por saque.")
-
-    elif valor > saldo:
-        print(f"Seu saldo é insuficiente. Seu saldo total é de {saldo:.2f}")
-
-    elif valor > 0:
-        saques_diario += 1
-        movimentacoes.append(valor * -1)
-        saldo -= valor
-        print(f"Saque efetuado. Seu novo saldo é de {saldo}")
-
-def extrato():
-
-    print("\n###### Extrato ######\n")
-    for movimento in movimentacoes:
-        if movimento < 0:
-            texto = "Saída  "
-        else:
-            texto = "Entrada"
-        print(f"{texto} > R$ {movimento:.2f}")
-    print(f"Saldo   = R$ {saldo:.2f}")
-    print("\n"+"#"*25)
-
-
-def validar_valor(valor):
-
-    # Verifica se é um número.
-    try:
-        valor = float(valor)
-    except ValueError:
-        valor = 0
-        print("É necessário um valor numérico positivo.")
-
-    # Verificar se o número é positivo.
-    if valor < 0:
-        valor = 0
-        print("É necessário um valor numérico positivo.")
-    return valor
-
+# Desafio DIO - Sistema bancário V2
+from textwrap import dedent
 
 def inicio():
 
+    LIMITE_SAQUE = 3
+    LIMITE_VALOR = 500.00
+    numero_saques = 0
+    saldo = 0
+    movimentacoes = list()
+    usuarios = list()
+    contas = list()
+    usuario_ativo = ""
+
     print("\n## Banco SeuDinheiroEhNosso ##")
-    print(" Seja Bem-vindo ".center(30, "#"))
-    menu()
+    print("Seja Bem-vindo(a).".center(30, "#"))
+
+    entrada = ""
+    while entrada != "0":
+
+        # Se não existe usuário ativo
+        if usuario_ativo not in usuarios:
+
+            entrada = menu_login()
+
+            # Fazer Login
+            if entrada == "1":
+                 
+            # Criar Usuário
+            elif entrada == "2":
+                
+            # Criar Conta
+            elif entrada =="3":
+
+            # Outra entrada - sair
+            else:
+                print("Encerrando...")
+                 
+        else:
+
+            # Depósito
+            if entrada == "1":
+        
+            # Saque
+            elif entrada == "2":
+        
+            # Extrato
+            elif entrada == "3"
+    
+            # Nova Conta
+            elif entrada == "4"
+    
+            # Trocar Usuário
+            elif entrada == "5"
+            entrada = menu()
+        
+            # Sair
+            else:
+                print("Encerrando...")
+            
+
+def menu_login():
+
+    print(dedent("""
+    [1] - Fazer Login
+    [2] - Criar Usuário
+    [3] - Criar Conta
+    [0] - Sair
+    """))
+    entrada = input("\nEscolha uma opção: ")
+
+    return entrada
+
+
+def menu():
+
+    print("[1] - Novo Usuário\n[2] - Nova Conta")
+    print("[3] - Depósito\n[4] - Saque\n[5] - Extrato")
+    print("[0] - Sair")
+
+    print(dedent("""
+    [1] - Depósito
+    [2] - Saque
+    [3] - Ver Extrato
+    [4] - Nova Conta
+    [5] - Trocar usuário
+    """))
+
+    entrada = input("\nEscolha uma opção: ")
+
+    return entrada
+
+
+def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
+    return saldo, extrato
+
+def depositar(saldo, valor, extrato, /):
+    return saldo, extrato
+
+def extrato(saldo, /, *, extrato): pass
+
+def criar_usuario(usuarios): 
+     
+
+    # [Nome, nascimento, cpf, endereço]
+    # endereco = 'Rua Hortênsia, 11 - Jardim Alto - Lagoa Azul/MG'
+def filtrar_usuarioas(cpf, usuarios): pass 
+
+
+def criar_conta(usuario): pass
+    # agencia, numero, usuario
+    # uma conta pertence a somente um usuario
 
 
 if __name__ == '__main__':
