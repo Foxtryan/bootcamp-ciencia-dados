@@ -1,7 +1,6 @@
 # bootcamp-ciencia-dados
 Bootcamp Ciência de Dados com Python - DIO &amp; iFood
-
-Bootcamp: Potência Tech powered by iFood | Ciências de Dados com Python
+Potência Tech powered by iFood | Ciências de Dados com Python
 
 **Desafio de Projeto 1** - Criar um sistema bancário simples com Python 3
 
