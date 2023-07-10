@@ -2,7 +2,7 @@
 Bootcamp Ciência de Dados com Python - DIO &amp; iFood
 Potência Tech powered by iFood | Ciências de Dados com Python
 
-# Desafio de Projeto 1 -  Criar um sistema bancário simples com Python 3
+# Desafio de Projeto 1 -  Criar um sistema bancário simples com Python
 
   Deve ser possível realizar as operações de sacar, depositar e visualizar extrato.
 
@@ -12,7 +12,7 @@ Potência Tech powered by iFood | Ciências de Dados com Python
 
   **Extrato**: Deve listar todos os depósitos e saques na conta. No fim deve ser exibido o saldo atual da conta no formato R$ XXX.XX.
   
-# Desafio de Projeto 2 - Aprimorar o sistema bancário com Python 3
+# Desafio de Projeto 2 - Aprimorar o sistema bancário com Python
 
   Separar as funções existentes de saque, depósito e extrato em funções. Criar duas novas funções: cadastrar usuário e cadastrar conta bancária (vinculada com usuário).
 
